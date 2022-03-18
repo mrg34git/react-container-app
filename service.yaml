@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    react-app: react-container-app
+  name: react-app-service
+  namespace: react
+spec:
+  type: NodePort
+  selector:
+    react-app: react-container-app
+  ports:
+  - port: 80 
+    targetPort: 80
+
+
+#NodePort listener is assigned by kubernetes cluseter
+
+#TargetPort is where app is listening to port 80 which should match the container port listening to
+#Port exposes the Kubernetes service inside the cluster. other pods in the cluster can communicated with this container on specified port
+#NodePort exposes service outside of the cluster

@@ -1,0 +1,43 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+      react-app: react-container-app
+  name: react-container-app
+  namespace: react
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      react-app: react-container-app
+  template:
+    metadata:
+      labels:
+        react-app: react-container-app
+    spec:
+      containers:
+        - name: react-container-app
+          image: mrg34dck/react-container-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '200m'
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 15
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            failureThreshold: 1
+
