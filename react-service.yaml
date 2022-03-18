@@ -19,3 +19,11 @@ spec:
 #TargetPort is where app is listening to port 80 which should match the container port listening to
 #Port exposes the Kubernetes service inside the cluster. other pods in the cluster can communicated with this container on specified port
 #NodePort exposes service outside of the cluster
+
+#react is not accessible due due to a typo on the selector name. Make sure to match label with the name in the deployment label  
+#before with error
+# selector:
+#    react_app: react-container-app
+#after with correction
+# selector:
+#    react-app: react-container-app
