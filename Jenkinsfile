@@ -15,7 +15,8 @@ pipeline {
     stage('SCM checkout') {
         steps {
            echo 'Clone repo...'
-           sh 'git pull origin'           
+           //sh 'git pull origin'
+           checkout scm           
         }
     }
 //    stage('Build') {
