@@ -26,7 +26,7 @@ pipeline {
  //   }
     stage('Build Docker Image') {
       steps {
-        container('docker') {  
+        container('react-container-app') {  
           sh "docker build -t mrg34dck/react-container-app:v.latest"  // when we run docker in this step, we're running it via a shell on the docker build-pod container, 
           sh "docker push mrg34dck/react-container-app:v.latest"        // which is just connecting to the host docker deaemon
         }
