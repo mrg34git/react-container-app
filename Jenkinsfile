@@ -8,9 +8,9 @@ pipeline {
     }
  
   }
-  environment {
-    CHESS_PC1 = env.CHESS_PC1  
-  }
+  //environment {
+  //  CHESS_PC1 = env.CHESS_PC1  
+  //}
   stages {
     stage('SCM checkout') {
         steps {
