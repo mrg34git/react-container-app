@@ -1,0 +1,34 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Pod
+
+spec:
+  containers:
+    - name: react-container-app
+      image: mrg34dck/react-container-app:latest
+      imagePullPolicy: Always
+    ports:
+      - containerPort: 80
+    resources:
+      limits:
+        memory: '128Mi'
+        cpu: '200m'
+    livenessProbe:
+      httpGet:
+        path: /index.html
+        port: 80
+      initialDelaySeconds: 15
+      timeoutSeconds: 2
+      periodSeconds: 5
+      failureThreshold: 1
+    readinessProbe:
+      httpGet:
+        path: /index.html
+        port: 80
+      initialDelaySeconds: 15
+      periodSeconds: 5
+      failureThreshold: 1
+
