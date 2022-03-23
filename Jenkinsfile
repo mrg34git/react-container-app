@@ -6,9 +6,10 @@ pipeline {
       yamlFile '_deployment.yaml'  // path to the pod definition relative to the root of our project 
       //defaultContainer 'maven'  // define a default container if more than a few stages use it, will default to jnlp container
     }
-    environment {
-    
-    }
+ 
+  }
+  environment {
+    CHESS_PC1 = env.CHESS_PC1  
   }
   stages {
     stage('SCM checkout') {
