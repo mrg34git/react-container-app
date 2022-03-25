@@ -43,7 +43,12 @@ pipeline {
       steps {
         echo 'Deployinging....'
         //sh ' kubectl delete -f react-test.yaml'
-        sh ' kubectl apply -f jenkins_build_deployment.yaml'
+        sh 'hostname'
+        sh 'pwd'
+        sh 'ls -l'
+        sh 'whoami'
+        sh 'env'
+        //sh ' kubectl apply -f jenkins_build_deployment.yaml'
       }
     }
   }
