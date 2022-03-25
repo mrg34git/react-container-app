@@ -30,6 +30,7 @@ pipeline {
             sh 'hostname'
             sh 'nginx -v'
             sh 'uname -a'
+            sh 'echo "current directory is" &&  pwd'
             sh 'ls -l'
 
 
