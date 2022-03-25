@@ -39,6 +39,13 @@ pipeline {
         }  
       }
     }
+    stage('Deployment') {
+      steps {
+        echo 'Deployinging....'
+        //sh ' kubectl delete -f react-test.yaml'
+        sh ' kubectl apply -f jenkins_build_deployment.yaml'
+      }
+    }
   }
   post {
     always {
