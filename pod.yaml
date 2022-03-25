@@ -6,7 +6,7 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-    - name: react-container-app
+    - name: jenkins-react
       image: mrg34dck/react-container-app:latest
       imagePullPolicy: Always
       ports:
