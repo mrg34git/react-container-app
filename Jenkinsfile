@@ -30,12 +30,30 @@ pipeline {
             sh 'hostname'
             sh 'nginx -v'
             sh 'uname -a'
-            
+
 
           //sh "docker build -t mrg34dck/react-container-app:v.latest ."  // when we run docker in this step, we're running it via a shell on the docker build-pod container, 
           //sh "docker push mrg34dck/react-container-app:v.latest"        // which is just connecting to the host docker deaemon
-        }
+        }  
       }
+    }
+  }
+  post {
+    always {
+       echo 'Portal image is deployed in to Kubernetes '
+    }
+    success {
+      echo 'Successfully!'
+    }
+    failure {
+      echo 'Failed!'
+    }
+    unstable {
+      echo 'This will run only if the run was marked as unstable'
+    }
+    changed {
+       echo 'This will run only if the state of the Pipeline has changed'
+       echo 'For example, if the Pipeline was previously failing but is now successful'
     }
   }
 }
