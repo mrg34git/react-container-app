@@ -6,8 +6,11 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-    - name: jenkins-react
-      image: mrg34dck/react-container-app:latest
+    - name: k8s-alpine-agent
+      image: mrg34dk//k8s-alpine-agent:latest
+      imagePullPolicy: Always 
+    - name: react-container-app
+      image: mrg34dck/react-container-app:latest 
       imagePullPolicy: Always
       ports:
         - containerPort: 80

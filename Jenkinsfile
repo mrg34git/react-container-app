@@ -24,9 +24,9 @@ pipeline {
 //        sh "mvn clean install"   
 //      }
  //   }
-    stage('Build Docker Image') {
+    stage('Build React Docker Image') {
       steps {
-        container('jenkins-react') {
+        container('react-container-app') {
             sh 'hostname'
             sh 'nginx -v'
             sh 'uname -a'
