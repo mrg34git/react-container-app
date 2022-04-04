@@ -12,9 +12,9 @@ spec:
         - "/dev/null"
       command: 
         - /usr/bin/tail
-      image: "mrg34dck/k8s-alpine-agent:latest"
+      image: "mrg34dck/k8s-jnlp-agentp:latest"
       imagePullPolicy: Always
-      name: k8s-alpine-agent
+      name: k8s-jnlp-agentp
       resources: 
         limits: 
           cpu: 200m
