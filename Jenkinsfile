@@ -19,20 +19,20 @@ pipeline {
            checkout scm           
         }
     }
-    stage('Deployment') {
-      steps {
-        container('k8s-alpine-agent') {
-          echo 'Deploying....'
+    //stage('Deployment') {
+    //  steps {
+    //    container('k8s-alpine-agent') {
+    //      echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
-          sh 'hostname'
-          sh 'pwd'
+    //      sh 'hostname'
+    //      sh 'pwd'
           //sh 'ls -l /usr/local/k8s/kubectl'
-          sh 'whoami'
-          sh 'env'
+    //      sh 'whoami'
+    //      sh 'env'
         //sh ' kubectl apply -f jenkins_build_deployment.yaml'
-        }
-      }
-    }
+    //    }
+    //  }
+    //}
 //    stage('Build') {
 //      steps {  // no container directive is needed as the maven container is the default
 //        sh "mvn clean install"   
