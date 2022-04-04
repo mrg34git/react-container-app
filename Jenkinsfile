@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      //label 'jenkins-react'  // all your pods will be named with this prefix, followed by a unique id
+      label 'k8s-jnlp-agent-template'  // all your pods will be named with this prefix, followed by a unique id
       inheritFrom 'k8s-jnlp-slave'
       idleMinutes 5  // how long the pod will live after no jobs have run on it
       yamlFile 'pod.yaml'  // path to the pod definition relative to the root of our project 
