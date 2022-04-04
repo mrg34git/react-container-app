@@ -1,43 +1,47 @@
-kind: Deployment
-apiVersion: apps/v1
-metadata:
-  labels:
-      react-app: react-container-app
-  name: react-container-app
-  namespace: react
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      react-app: react-container-app
-  template:
-    metadata:
-      labels:
-        react-app: react-container-app
-    spec:
-      containers:
-        - name: react-container-app
-          image: mrg34dck/react-container-app:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80
-          resources:
-            limits:
-              memory: '128Mi'
-              cpu: '200m'
-          livenessProbe:
-            httpGet:
-              path: /index.html
-              port: 80
-            initialDelaySeconds: 15
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 1
-          readinessProbe:
-            httpGet:
-              path: /index.html
-              port: 80
-            initialDelaySeconds: 15
-            periodSeconds: 5
-            failureThreshold: 1
-
+---
+apiVersion: v1
+kind: Pod
+spec: 
+  containers: 
+    - 
+      args: 
+        - 99d
+      command: 
+        - sleep
+      image: "mrg34dck/k8s-alpine-agent:latest"
+      imagePullPolicy: Always
+      name: k8s-alpine-agent
+      resources: 
+        limits: 
+          cpu: 200m
+          memory: 128Mi
+    - 
+      args: 
+        - 99d
+      command: 
+        - sleep
+      image: "mrg34dck/react-container-app:latest"
+      imagePullPolicy: Always
+      livenessProbe: 
+        failureThreshold: 1
+        httpGet: 
+          path: /index.html
+          port: 80
+        initialDelaySeconds: 15
+        periodSeconds: 5
+        timeoutSeconds: 2
+      name: react-container-app
+      ports: 
+        - 
+          containerPort: 80
+      readinessProbe: 
+        failureThreshold: 1
+        httpGet: 
+          path: /index.html
+          port: 80
+        initialDelaySeconds: 15
+        periodSeconds: 5
+      resources: 
+        limits: 
+          cpu: 200m
+          memory: 128Mi
