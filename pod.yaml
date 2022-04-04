@@ -2,47 +2,51 @@
 # and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
 #
+---
 apiVersion: v1
 kind: Pod
-spec:
-  containers:
-  - args:
-    - "99d"
-    command:
-    - "sleep"
-    name: k8s-alpine-agent
-    image: mrg34dck/k8s-alpine-agent:latest
-    imagePullPolicy: Always
-      resources:
-        limits:
-          memory: '128Mi'
-          cpu: '200m'
-  - args:
-    - "99d"
-    command:
-    - "sleep"           
-    name: react-container-app
-    image: mrg34dck/react-container-app:latest 
-    imagePullPolicy: Always
-    ports:
-      - containerPort: 80
-      resources:
-        limits:
-          memory: '128Mi'
-          cpu: '200m'
-      livenessProbe:
-        httpGet:
+spec: 
+  containers: 
+    - 
+      args: 
+        - 99d
+      command: 
+        - sleep
+      image: "mrg34dck/k8s-alpine-agent:latest"
+      imagePullPolicy: Always
+      name: k8s-alpine-agent
+      resources: 
+        limits: 
+          cpu: 200m
+          memory: 128Mi
+    - 
+      args: 
+        - 99d
+      command: 
+        - sleep
+      image: "mrg34dck/react-container-app:latest"
+      imagePullPolicy: Always
+      livenessProbe: 
+        failureThreshold: 1
+        httpGet: 
           path: /index.html
           port: 80
         initialDelaySeconds: 15
+        periodSeconds: 5
         timeoutSeconds: 2
-        periodSeconds: 5
+      name: react-container-app
+      ports: 
+        - 
+          containerPort: 80
+      readinessProbe: 
         failureThreshold: 1
-      readinessProbe:
-        httpGet:
+        httpGet: 
           path: /index.html
           port: 80
         initialDelaySeconds: 15
         periodSeconds: 5
-        failureThreshold: 1
+      resources: 
+        limits: 
+          cpu: 200m
+          memory: 128Mi
 
