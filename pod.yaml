@@ -8,10 +8,10 @@ kind: Pod
 spec: 
   containers: 
     - 
-  #    args: 
-  #      - 99d
-  #    command: 
-  #      - sleep
+      args: 
+        - cat
+      command: 
+        - /bin/sh
       image: "mrg34dck/k8s-alpine-agent:latest"
       imagePullPolicy: Always
       name: k8s-alpine-agent
@@ -19,7 +19,7 @@ spec:
         limits: 
           cpu: 200m
           memory: 128Mi
-      tty: false
+      tty: true
   #    volumeMounts:
   #    - mountPath: "/usr/local/k8s"
   #      name: "k8s-volume"
