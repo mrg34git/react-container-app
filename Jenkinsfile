@@ -46,7 +46,7 @@ pipeline {
         //sh ' kubectl delete -f react-test.yaml'
           sh 'hostname'
           sh 'pwd'
-          sh 'ls -l /usr/local/k8s'
+          //sh 'ls -l /usr/local/k8s/kubectl'
           sh 'whoami'
           sh 'env'
         //sh ' kubectl apply -f jenkins_build_deployment.yaml'
