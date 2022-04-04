@@ -9,10 +9,10 @@ spec:
     - name: k8s-alpine-agent
       image: mrg34dck/k8s-alpine-agent:latest
       imagePullPolicy: Always
-      resources:
-        limits:
-          memory: '128Mi'
-          cpu: '200m' 
+      #resources:
+      #  limits:
+      #    memory: '128Mi'
+      #    cpu: '200m' 
     - name: react-container-app
       image: mrg34dck/react-container-app:latest 
       imagePullPolicy: Always
