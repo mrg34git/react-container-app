@@ -7,7 +7,7 @@ kind: Pod
 spec:
   containers:
     - name: k8s-alpine-agent
-      image: mrg34dk//k8s-alpine-agent:latest
+      image: mrg34dck/k8s-alpine-agent:latest
       imagePullPolicy: Always 
     - name: react-container-app
       image: mrg34dck/react-container-app:latest 

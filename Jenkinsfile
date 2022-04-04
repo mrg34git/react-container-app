@@ -41,14 +41,16 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        echo 'Deployinging....'
+        container('k8s-alpine-agent') {
+          echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
-        sh 'hostname'
-        sh 'pwd'
-        sh 'ls -l'
-        sh 'whoami'
-        sh 'env'
+          sh 'hostname'
+          sh 'pwd'
+          sh 'ls -l /usr/local/k8s'
+          sh 'whoami'
+          sh 'env'
         //sh ' kubectl apply -f jenkins_build_deployment.yaml'
+        }
       }
     }
   }
