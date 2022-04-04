@@ -9,7 +9,7 @@ spec:
   containers: 
     - 
       args: 
-        - "-f /dev/null"
+        - "/dev/null"
       command: 
         - /usr/bin/tail
       image: "mrg34dck/k8s-alpine-agent:latest"
