@@ -9,9 +9,9 @@ spec:
   containers: 
     - 
       args: 
-        - cat
+        - "-f /dev/null"
       command: 
-        - /bin/sh
+        - /usr/bin/tail
       image: "mrg34dck/k8s-alpine-agent:latest"
       imagePullPolicy: Always
       name: k8s-alpine-agent
