@@ -19,11 +19,12 @@ spec:
   #      limits: 
   #        cpu: 200m
   #        memory: 128Mi
-    - 
-      args: 
-        - 99d
-      command: 
-        - sleep
+  #  - 
+  #    args: 
+  #      - 99d
+  #    command: 
+  #      - sleep
+    -  
       image: "mrg34dck/react-container-app:latest"
       imagePullPolicy: Always
       livenessProbe: 
@@ -49,6 +50,6 @@ spec:
         limits: 
           cpu: 200m
           memory: 128Mi
-      tty: false
-      
+      #tty: false
+
 
