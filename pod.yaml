@@ -20,10 +20,10 @@ spec:
           cpu: 200m
           memory: 128Mi
       tty: false
-      volumeMounts:
-      - mountPath: "/usr/local/k8s"
-        name: "k8s-volume"
-        readOnly: false      
+  //    volumeMounts:
+  //    - mountPath: "/usr/local/k8s"
+  //      name: "k8s-volume"
+  //      readOnly: false      
   #  - 
   #    args: 
   #      - 99d
