@@ -42,7 +42,7 @@ pipeline {
               sh 'kubectl get pods'
               sh 'kubectl get nodes'
               sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment --all-namespaces '
-              
+              sh 'kubectl create -f ./jenkins_build_deploy.yaml'
            }  
           //sh 'kubectl get nodes'
         //sh ' kubectl apply -f jenkins_build_deployment.yaml'
