@@ -11,7 +11,8 @@ pipeline {
  
   }
   environment {
-    BUILD_NAME = "env.BUILD_NAME"
+    BUILD_NAME = "${env.BUILD_NAME}"
+    //${env.JOB_NAME}
     
   }
   stages {
@@ -25,8 +26,9 @@ pipeline {
     stage('Deployment') {
       steps {
         container('k8s-agent-alpine') {
-         sh 'echo "BUILD NAME is ${BUILD_NAME}"'
-         sh 'echo "NODE NAME is env.NODE_NAME"'
+          //echo "Database engine is ${DB_ENGINE}"
+         echo "BUILD NAME: ${BUILD_NAME}"
+         echo "NODE NAME: ${env.NODE_NAME}"
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
