@@ -8,10 +8,10 @@ kind: Pod
 spec: 
   containers: 
     - 
-      args: 
-        - "/dev/null"
+      #args: 
+      #  - "/dev/null"
       command: 
-        - /usr/bin/tail
+      - cat
       image: "mrg34dck/k8s-jnlp-agentp:latest"
       imagePullPolicy: Always
       name: k8s-jnlp-agentp
