@@ -11,7 +11,7 @@ pipeline {
  
   }
   environment {
-    BUILD_NAME = "${env.BUILD_NAME}"
+    BUILD_TAG = "${env.BUILD_TAG}"
     //${env.JOB_NAME}
     
   }
@@ -27,7 +27,7 @@ pipeline {
       steps {
         container('k8s-agent-alpine') {
           //echo "Database engine is ${DB_ENGINE}"
-         echo "BUILD NAME: ${BUILD_NAME}"
+         echo "BUILD NAME: ${BUILD_TAG}"
          echo "NODE NAME: ${env.NODE_NAME}"
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
