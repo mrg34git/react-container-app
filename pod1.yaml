@@ -23,4 +23,8 @@ spec:
           cpu: 200m
           memory: 128Mi        
       tty: true
-      terminationGracePeriodSeconds: 60
+      lifecycle:
+        prestop:
+        exec:
+         command: ["sleep", "30"]
+      #terminationGracePeriodSeconds: 60
