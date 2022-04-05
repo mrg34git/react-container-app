@@ -1,0 +1,25 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins-app: jenkins-mike-react-app
+spec: 
+  containers: 
+    - 
+      #args: 
+      #  - "/dev/null"
+      command: 
+      - cat
+      image: "mrg34dck/k8s-alpine-agent:latest"
+      imagePullPolicy: Always
+      name: k8s-agent-alpine
+      resources: 
+        limits: 
+          cpu: 200m
+          memory: 128Mi
+      tty: true
