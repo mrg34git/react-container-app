@@ -5,9 +5,9 @@
 ---
 apiVersion: v1
 kind: Pod
-metadata:
-   labels:
-     jenkins-mike-react-app
+#metadata:
+#   labels:
+#     jenkins-mike-react-app
 spec: 
   containers: 
     - 

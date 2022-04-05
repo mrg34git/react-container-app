@@ -10,9 +10,10 @@ pipeline {
     }
  
   }
-  //environment {
-  //  CHESS_PC1 = env.CHESS_PC1  
-  //}
+  environment {
+    POD_NAME = POD_LABEL
+
+  }
   stages {
     stage('SCM checkout') {
         steps {
@@ -24,6 +25,7 @@ pipeline {
     stage('Deployment') {
       steps {
         container('k8s-agent-alpine') {
+        echo '${POD_NAME}'
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
