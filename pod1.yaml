@@ -23,3 +23,4 @@ spec:
           cpu: 200m
           memory: 128Mi
       tty: true
+      terminationGracePeriodSeconds: 60
