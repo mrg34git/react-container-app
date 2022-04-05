@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    react-app: jenkins-react
-  name: jenkins-react-service
-  namespace: react
+    jenkins-app: jenkins-mike-react-app
+  name: jenkins-mike-react-service
+  namespace: jenkins
 spec:
   type: NodePort
   selector:
-    jenkins-react-app: jenkins-react
+    jenkins-app: jenkins-mike-react-app
   ports:
   - port: 80 
     targetPort: 80
@@ -17,18 +17,18 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   labels:
-      jenkins-react-app: jenkins-react
-  name: jenkins-react
+    jenkins-app: jenkins-mike-react-app
+  name: jenkins-mike-react
   namespace: jenkins
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      react-app: jenkins-react
+      jenkins-app: jenkins-mike-react-app
   template:
     metadata:
       labels:
-        react-app: jenkins-react
+        jenkins-app: jenkins-mike-react-app
     spec:
       containers:
         - name: jenkins-react
