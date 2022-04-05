@@ -11,7 +11,7 @@ pipeline {
  
   }
   environment {
-    POD_NAME = POD_LABEL
+    NAME = version()
 
   }
   stages {
@@ -25,7 +25,7 @@ pipeline {
     stage('Deployment') {
       steps {
         container('k8s-agent-alpine') {
-        echo '${POD_NAME}'
+        echo '${NAME}'
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
