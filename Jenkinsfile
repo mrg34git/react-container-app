@@ -31,6 +31,7 @@ pipeline {
           sh 'ls -l /usr/local/k8s/kubectl'
           sh 'whoami'
           sh 'env'
+          sh 'kubectl get nodes'
         //sh ' kubectl apply -f jenkins_build_deployment.yaml'
         }
      }
