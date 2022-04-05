@@ -31,7 +31,13 @@ pipeline {
           sh 'ls -l /usr/local/k8s/kubectl'
           sh 'whoami'
           sh 'env'
-          sh 'kubectl get nodes'
+          withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s_file_id', serverUrl: 'https://10.0.0.249:6443') {
+              sh 'kubectl get pods'
+              sh 'kubectl get nodes'
+              sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment --all-namespaces '
+              
+           }  
+          //sh 'kubectl get nodes'
         //sh ' kubectl apply -f jenkins_build_deployment.yaml'
         }
      }
