@@ -11,7 +11,7 @@ pipeline {
  
   }
   environment {
-    BUILD_NAME = ${env.BUILD_TAG}
+    BUILD_NAME = "${env.BUILD_TAG}"
 
   }
   stages {
