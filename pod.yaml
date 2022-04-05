@@ -12,7 +12,7 @@ spec:
       #  - "/dev/null"
       command: 
       - cat
-      image: "mrg34dck/k8s-jnlp-agentp:latest"
+      image: "mrg34dck/k8s-alpine-agent:latest"
       imagePullPolicy: Always
       name: k8s-jnlp-agentp
       resources: 
