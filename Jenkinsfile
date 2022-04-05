@@ -23,7 +23,8 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        container('k8s-jnlp-agentp') {
+        container('k8s-agent-alpine') {
+        //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
           sh 'hostname'

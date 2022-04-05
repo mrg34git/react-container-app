@@ -14,7 +14,7 @@ spec:
       - cat
       image: "mrg34dck/k8s-alpine-agent:latest"
       imagePullPolicy: Always
-      name: k8s-jnlp-agentp
+      name: k8s-agent-alpine
       resources: 
         limits: 
           cpu: 200m
