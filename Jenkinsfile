@@ -11,8 +11,8 @@ pipeline {
  
   }
   environment {
-    BUILD_NAME = "${env.BUILD_TAG}"
-
+    BUILD_NAME = "${env.BUILD_NAME}"
+    
   }
   stages {
     stage('SCM checkout') {
@@ -25,7 +25,8 @@ pipeline {
     stage('Deployment') {
       steps {
         container('k8s-agent-alpine') {
-        echo '${BUILD_NAME}'
+         sh 'echo "BUILD NAME is ${BUILD_NAME}"'
+         sh 'echo "NODE NAME is ${env.NODE_NAME}"'
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
