@@ -11,7 +11,7 @@ pipeline {
  
   }
   environment {
-    NAME = version()
+    BUILD_NAME = ${env.BUILD_TAG}
 
   }
   stages {
@@ -25,7 +25,7 @@ pipeline {
     stage('Deployment') {
       steps {
         container('k8s-agent-alpine') {
-        echo '${NAME}'
+        echo '${BUILD_NAME}'
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
         //sh ' kubectl delete -f react-test.yaml'
