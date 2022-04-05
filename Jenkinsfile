@@ -25,7 +25,7 @@ pipeline {
     stage('Deployment') {
       steps {
         container('k8s-agent-alpine') {
-         sh 'echo "BUILD NAME is ${BUILD_NAME}"'
+         sh 'echo "BUILD NAME is ${env.BUILD_NAME}"'
          sh 'echo "NODE NAME is ${env.NODE_NAME}"'
         //container('k8s-jnlp-agentp') {
           echo 'Deploying....'
