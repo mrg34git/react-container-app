@@ -45,7 +45,9 @@ pipeline {
               sh 'kubectl create -f ./jenkins_build_deploy.yaml'
            }  
           //sh 'kubectl get nodes'
-        //sh ' kubectl apply -f jenkins_build_deployment.yaml'
+          sh 'kubectl delete -f .jenkins_build_deploy.yaml' 
+
+          sh ' kubectl apply -f jenkins_build_deployment.yaml'
         }
      }
     }
