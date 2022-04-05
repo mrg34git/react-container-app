@@ -21,6 +21,6 @@ spec:
       resources: 
         limits: 
           cpu: 200m
-          memory: 128Mi
+          memory: 128Mi        
       tty: true
       terminationGracePeriodSeconds: 60
