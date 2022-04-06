@@ -23,8 +23,8 @@ spec:
           cpu: 200m
           memory: 128Mi        
       tty: true
-      lifecycle:
-        prestop:
-        exec:
-         command: ["sleep", "30"]
+      #lifecycle:
+      #  prestop:
+      #  exec:
+      #   command: ["sleep", "30"]
       #terminationGracePeriodSeconds: 60
