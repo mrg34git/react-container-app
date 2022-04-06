@@ -41,6 +41,8 @@ pipeline {
           sh 'env'
           withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s_file_id') {
           //withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s_file_id', serverUrl: 'https://apphub01:6443') {
+              echo "Cleaning up any kubectl agent in completed status"
+              sh 'kubectl delete pod --field-selector=status.phase==Succeeded -n jenkins'
               sh 'kubectl get pods'
               sh 'kubectl get nodes'
               sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment --all-namespaces '
