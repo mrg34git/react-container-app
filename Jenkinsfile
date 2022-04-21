@@ -46,10 +46,12 @@ pipeline {
               sh 'kubectl get pods'
               sh 'kubectl get nodes'
               sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment -o wide --all-namespaces '
-              try {               
-                sh 'kubectl delete -f ./jenkins_build_deploy.yaml'
-              } catch (err) {
+              script {
+                try {               
+                  sh 'kubectl delete -f ./jenkins_build_deploy.yaml'
+                } catch (err) {
                   echo "Not deployed yet. Deploying initial deployment"
+                }
               }
               sh 'kubectl create -f ./jenkins_build_deploy.yaml'
               sh 'kubectl get pods '
