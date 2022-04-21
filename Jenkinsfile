@@ -3,7 +3,7 @@ pipeline {
     kubernetes {
      // label 'k8s-jnlp-agent-template'  // all your pods will be named with this prefix, followed by a unique id
       //inheritFrom 'k8s-jnlp-agent-template'
-      idleMinutes 1  // how long the pod will live after no jobs have run on it
+      idleMinutes 5  // how long the pod will live after no jobs have run on it
       yamlFile 'pod1.yaml'  // path to the pod definition relative to the root of our project 
       //defaultContainer 'maven'  // define a default container if more than a few stages use it, will default to jnlp container
      // defaultContainer 'mrg3'  
@@ -46,8 +46,8 @@ pipeline {
               sh 'kubectl get pods'
               sh 'kubectl get nodes'
               sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment -o wide --all-namespaces '
-              sh 'kubectl delete -f ./jenkins_build_deploy.yaml'
-              sh 'kubectl create -f ./jenkins_build_deploy.yaml'
+              sh 'kubectl delete -f ./jenkins_build_deploy.yaml && kubectl create -f ./jenkins_build_deploy.yaml'
+              //sh 'kubectl create -f ./jenkins_build_deploy.yaml'
               sh 'kubectl get pods'
             //  sh 'kubectl delete pod "${PODNAME}" -n jenkins'
            }  
