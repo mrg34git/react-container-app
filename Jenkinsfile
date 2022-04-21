@@ -45,7 +45,7 @@ pipeline {
               sh 'kubectl delete pod --field-selector=status.phase==Succeeded -n jenkins'
               sh 'kubectl get pods'
               sh 'kubectl get nodes'
-              sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment --all-namespaces '
+              sh '/usr/local/k8s/kubectl get nodes,pods,services,deployment -o wide --all-namespaces '
               sh 'kubectl delete -f ./jenkins_build_deploy.yaml'
               sh 'kubectl create -f ./jenkins_build_deploy.yaml'
               sh 'kubectl get pods'
